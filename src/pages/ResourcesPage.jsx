@@ -352,6 +352,6 @@ const ResourcesPage = () => {
       </div>
     </>
   )
-}
+} 
 
 export default ResourcesPage
