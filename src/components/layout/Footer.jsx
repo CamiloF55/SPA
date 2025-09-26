@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAccessibility } from '../../hooks/useAccessibility'
 
-
 /**
  * Componente Footer accesible
  * Incluye información de contacto, enlaces útiles y datos de accesibilidad
@@ -82,7 +81,6 @@ const Footer = () => {
     fontSize: '20px',
     marginBottom: '0.6rem'
   }
-
   return (
     <footer className="footer" role="contentinfo" id="footer">
       <div className="footer-content">
@@ -174,6 +172,26 @@ const Footer = () => {
     </p>
   </div>
 </div>
+        {/* Características de accesibilidad */}
+        <div className="footer-section footer-accessibility">
+          <h3>Características de Accesibilidad</h3>
+          <ul className="features-list" role="list">
+            {accessibilityFeatures.map((feature, index) => (
+              <li key={index} className="feature-item">
+                <span className="feature-icon" aria-hidden="true">✅</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          
+          <div className="wcag-compliance">
+            <p>
+              <strong>Certificación:</strong> Este sitio cumple con las pautas 
+              <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> 2.1 
+              nivel <abbr title="AA - Doble A">AA</abbr>
+            </p>
+          </div>
+        </div>
 
         {/* Enlaces útiles */}
         <div className="footer-section footer-links">

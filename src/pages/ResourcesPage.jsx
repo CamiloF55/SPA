@@ -308,7 +308,8 @@ const ResourcesPage = () => {
             </div>
           )}
         </section>
-
+<br />
+<br />
         {/* Información adicional */}
         <section className="info-section" aria-labelledby="info-title">
           <div className="card hero-card">
