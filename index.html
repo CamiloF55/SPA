@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portal de recursos educativos accesibles desarrollado con React, cumpliendo estándares WCAG 2.1 AA para educación inclusiva" />
+    <meta name="keywords" content="educación accesible, recursos educativos, WCAG 2.1, React, accesibilidad web" />
+    <meta name="author" content="Portal Educativo Team" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portal-educativo-accesible.edu/" />
+    <meta property="og:title" content="Portal de Recursos Educativos Accesibles" />
+    <meta property="og:description" content="Plataforma educativa inclusiva que cumple con estándares WCAG 2.1 AA" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Portal de Recursos Educativos Accesibles" />
+    <meta property="twitter:description" content="Plataforma educativa inclusiva que cumple con estándares WCAG 2.1 AA" />
+    
+    <!-- Accessibility -->
+    <meta name="theme-color" content="#1a365d" />
+    <meta name="color-scheme" content="light dark" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Skip link styles - Must be inline for accessibility -->
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 16px;
+        background: #007bff;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+        z-index: 9999;
+        transition: top 0.2s ease;
+      }
+      
+      .skip-link:focus {
+        top: 16px;
+        outline: 3px solid #ffd700;
+        outline-offset: 2px;
+      }
+      
+      /* Loading state accessibility */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #e9ecef;
+        border-top: 4px solid #007bff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Critical CSS for initial paint */
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1.6;
+      }
+      
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        body {
+          background: #000000;
+          color: #ffffff;
+        }
+      }
+      
+      /* Reduce motion for users who prefer it */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+    
+    <title>Portal de Recursos Educativos Accesibles</title>
+  </head>
+  <body>
+    <!-- Skip link para accesibilidad - debe estar primero -->
+    <a href="#main-content" class="skip-link">
+      Saltar al contenido principal
+    </a>
+    
+    <!-- Loading screen with proper accessibility -->
+    <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+      <div class="loading-spinner" aria-hidden="true"></div>
+      <p style="margin-top: 1rem; font-size: 1.1rem; color: #1a365d;">
+        Cargando Portal Educativo Accesible...
+      </p>
+      <p style="font-size: 0.9rem; color: #6c757d; max-width: 300px; text-align: center; margin-top: 0.5rem;">
+        Optimizando experiencia para tecnologías de asistencia
+      </p>
+    </div>
+    
+    <!-- React root -->
+    <div id="root"></div>
+    
+    <!-- Error boundary fallback -->
+    <noscript>
+      <div style="padding: 2rem; text-align: center; background: #f8d7da; border: 1px solid #dc3545; margin: 2rem; border-radius: 8px;">
+        <h1 style="color: #721c24;">JavaScript Requerido</h1>
+        <p style="color: #721c24; margin-bottom: 1rem;">
+          Esta aplicación requiere JavaScript para funcionar correctamente.
+        </p>
+        <p style="color: #721c24;">
+          Por favor, habilita JavaScript en tu navegador y recarga la página.
+        </p>
+        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 4px;">
+          <h2>Contacto Alternativo</h2>
+          <p><strong>Email:</strong> accesibilidad@portaleducativo.edu</p>
+          <p><strong>Teléfono:</strong> +1 (555) 123-4567</p>
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- Schema.org structured data for accessibility -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Portal de Recursos Educativos Accesibles",
+      "description": "Plataforma educativa desarrollada con React que cumple estándares WCAG 2.1 AA",
+      "url": "https://portal-educativo-accesible.edu",
+      "applicationCategory": "Educational",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "accessibilityAPI": "ARIA",
+      "accessibilityControl": [
+        "fullKeyboardControl",
+        "fullMouseControl", 
+        "fullTouchControl"
+      ],
+      "accessibilityFeature": [
+        "alternativeText",
+        "captions",
+        "highContrastDisplay",
+        "largePrint",
+        "resizeText",
+        "structuralNavigation",
+        "tableOfContents"
+      ],
+      "accessibilityHazard": "none",
+      "creator": {
+        "@type": "Organization",
+        "name": "Portal Educativo Team"
+      }
+    }
+    </script>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
